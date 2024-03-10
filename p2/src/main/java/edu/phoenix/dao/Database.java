@@ -32,8 +32,9 @@ public class Database {
     }
 
     public static void updateUser(User user) {
-        dataBase.remove(getUser(user.getLogin(), user.getPassword()));
-        dataBase.add(user);
+        // TODO: Переделать так, чтобы позиция в list-е осталась той же
+        dataBase.indexOf(getUser(user.getLogin(), user.getPassword()));
+        dataBase.set(1, user);
     }
 
 }

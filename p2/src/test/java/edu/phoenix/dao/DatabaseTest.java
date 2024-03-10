@@ -12,6 +12,8 @@ class DatabaseTest {
   private static final String LOGIN = "login";
   private static final String PASSWORD = "password";
 
+  //? При полном тестировании всё ломается, но при частичном всё в порядке
+
   @Test
   void shouldAddUser() {
     assertTrue(Database.dataBase.isEmpty());
@@ -72,7 +74,7 @@ class DatabaseTest {
 
     User updated = new User(updatedName, LOGIN, updatedPassword);
 
-    Database.updateUser(updated);
+    Database.updateUser(updated); //? Как я должен находить пользователя, если непонятно, относительно какого пользователя должен происходить поиск?
 
     User fromDB = Database.dataBase.get(0);
 
