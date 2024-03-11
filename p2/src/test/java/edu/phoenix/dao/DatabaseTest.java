@@ -17,7 +17,8 @@ class DatabaseTest {
   //? При полном тестировании всё ломается, но при частичном всё в порядке
 
   @Test
-  void shouldAddUser() {
+  void shouldAddUser() throws Exception {
+    // Можно или так, или обработать исключения внутри, но тогда не будет работать 5-й тест
     assertTrue(Database.dataBase.isEmpty());
 
     Database.addUser(NAME, LOGIN, PASSWORD);
