@@ -74,7 +74,7 @@ class DatabaseTest {
 
     User updated = new User(updatedName, LOGIN, updatedPassword);
 
-    Database.updateUser(updated); //? Как я должен находить пользователя, если непонятно, относительно какого пользователя должен происходить поиск?
+    Database.updateUser(updated);
 
     User fromDB = Database.dataBase.get(0);
 

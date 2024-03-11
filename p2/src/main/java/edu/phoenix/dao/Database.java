@@ -32,6 +32,7 @@ public class Database {
     }
 
     public static void updateUser(User user) {
+        //? Как я должен находить пользователя, если непонятно, относительно какого пользователя должен происходить поиск?
         // TODO: Переделать так, чтобы позиция в list-е осталась той же
         dataBase.indexOf(getUser(user.getLogin(), user.getPassword()));
         dataBase.set(1, user);
