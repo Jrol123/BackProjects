@@ -4,7 +4,9 @@ import edu.phoenix.model.User;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DatabaseTest {
@@ -84,5 +86,14 @@ class DatabaseTest {
     Database.dataBase.remove(0);
 
     assertTrue(Database.dataBase.isEmpty());
+  }
+
+  @Test
+  void addEmptyUser(){
+    assertTrue(Database.dataBase.isEmpty());
+
+    Exception thrown = assertThrows(Exception.class, () -> Database.addUser("Artemii", "", ""));
+
+    assertTrue(thrown.getMessage().equals("Параметры не могут быть пустыми"));
   }
 }
