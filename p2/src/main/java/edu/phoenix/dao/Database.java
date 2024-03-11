@@ -38,8 +38,6 @@ public class Database {
     }
 
     public static void updateUser(User user) {
-        // #1
-        // TODO: Переделать так, чтобы позиция в list-е осталась той же
         int index_user = dataBase.indexOf(getUser(user.getLogin(), user.getPassword()));
         dataBase.set(index_user, user);
     }
