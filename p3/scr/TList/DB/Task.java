@@ -10,4 +10,16 @@ public class Task {
         this.name = name;
         this.inside = inside;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getInside() {
+        return inside;
+    }    
 }

@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a32b788-a8aa-4161-9338-745719e8d5c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/p1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../p2/src/main/java/edu/phoenix/exception/IllegalValueException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../p2/src/main/java/edu/phoenix/dao/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/../p2/src/main/java/edu/phoenix/dao/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../p2/src/test/java/edu/phoenix/dao/DatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../p2/src/test/java/edu/phoenix/dao/DatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../p3/TList/DB/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../p3/TList/DB/Tasklist.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +25,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
@@ -48,9 +45,9 @@
     "Node.js.l1.js.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Github/BackProjects/p2",
+    "last_opened_file_path": "C:/Github/BackProjects/p1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,7 +73,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
       </set>
     </attachedChunks>
   </component>
@@ -93,6 +91,7 @@
       <workItem from="1709787343552" duration="115000" />
       <workItem from="1709787488163" duration="78000" />
       <workItem from="1709787605740" duration="891000" />
+      <workItem from="1715397158926" duration="97000" />
     </task>
     <servers />
   </component>

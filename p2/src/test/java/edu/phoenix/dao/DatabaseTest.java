@@ -95,6 +95,6 @@ class DatabaseTest {
 
     Exception thrown = assertThrows(Exception.class, () -> Database.addUser("Artemii", "", ""));
 
-    assertTrue(thrown.getMessage().equals("Параметры не могут быть пустыми"));
+      assertEquals("Параметры не могут быть пустыми", thrown.getMessage());
   }
 }

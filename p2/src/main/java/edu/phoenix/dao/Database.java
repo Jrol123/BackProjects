@@ -1,5 +1,6 @@
 package edu.phoenix.dao;
 
+import edu.phoenix.exception.IllegalValueException;
 import edu.phoenix.model.User;
 
 import java.util.ArrayList;
@@ -10,8 +11,8 @@ public class Database {
 
     public static void addUser(String name, String login, String password) throws Exception {
         try {
-            if (login.equals("")) {
-                throw new Exception("Параметры не могут быть пустыми");
+            if (login.isEmpty()) {
+                throw new IllegalValueException("Параметры не могут быть пустыми");
             }
         }
         finally{}
@@ -20,8 +21,8 @@ public class Database {
 
     public static User getUser(String login, String password) {
         try {
-            if (login.equals("")) {
-                throw new Exception("Параметры не могут быть пустыми");
+            if (login.isEmpty()) {
+                throw new IllegalValueException("Пустой логин");
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

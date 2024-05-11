@@ -8,7 +8,6 @@ public class Tasklist {
 
     public static void addTask(String name, String inside){
         dataBase.add(new Task(dataBase.size(), name, inside));
-        GET
     }
 
     public static Task returnTask(int id){
