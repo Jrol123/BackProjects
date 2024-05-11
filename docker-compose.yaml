@@ -4,7 +4,7 @@ volumes:
 services: 
   lab4_db:
     image: 'postgres:latest'
-    container_name: 'java-postgres'
+    container_name: 'postgres-lab4'
     restart: always 
     environment:
       - 'POSTGRES_USER=admin' 
