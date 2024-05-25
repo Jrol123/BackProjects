@@ -1,0 +1,21 @@
+@home=localhost:8080
+###
+@id=1
+GET {{home}}/{{id}}
+
+###
+@username=Sirnik
+GET {{home}}/get_users
+Content-Type: application/json
+
+{
+  "username": "Sirnik"
+}
+
+###
+POST {{home}}/create_user
+Content-Type: application/json
+
+{
+  "username": "luck"
+}
