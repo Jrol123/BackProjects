@@ -27,13 +27,14 @@ public class UserController {
     }
 
     //TODO: Переделать под Body
-    @GetMapping("/0-{username}")
+    @GetMapping("/get_users")
     @ResponseStatus(HttpStatus.OK)
-    public List<UserResponseByIdDto> getUsersByUsername(@PathVariable String username){
+    public List<UserResponseByIdDto> getUsersByUsername(@RequestBody AllUsersDto allUsersDto){
+        var username = allUsersDto.getUsername();
         var users = userService.getAllByName(username);
+//        var usersDto = users.forEach((user) -> modelMapper.map(user, UserResponseByIdDto.class));
         List<UserResponseByIdDto> usersDto = new ArrayList<>();
-         users.forEach((user) -> usersDto.add(modelMapper.map(user, UserResponseByIdDto.class)));
-//        var usersDto = modelMapper.map(users, UsersResponseByUsernameDto.class);
+        users.forEach((user) -> usersDto.add(modelMapper.map(user, UserResponseByIdDto.class)));
         return usersDto;
     }
 
