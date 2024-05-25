@@ -1,27 +1,23 @@
 package com.example.project.model;
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.*;
 
 @Data
 @Entity
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
     private Long id;
 
-    @Column(name = "count_nodes")
-    @Setter
-    @Getter
-    private Integer count_nodes;
-
-    @Column(name = "username", unique = true, length = 50)
-    @Setter
-    @Getter
+    @Column(name = "username", length = 50)
     private String username;
+
+    @Column(name = "count_nodes")
+    private Integer count_nodes = 0;
 }
