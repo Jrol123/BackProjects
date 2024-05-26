@@ -5,6 +5,6 @@ import lombok.experimental.Accessors;
 
 @Data
 @Accessors(chain = true)
-public class UserCreationResponseDto {
+public class UserIdDto {
     private long id;
 }
