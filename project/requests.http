@@ -4,12 +4,12 @@
 GET {{home}}/{{id}}
 
 ###
-@username=Sirnik
+@username=luck
 GET {{home}}/get_users
 Content-Type: application/json
 
 {
-  "username": "Sirnik"
+  "username": "{{username}}"
 }
 
 ###
@@ -17,5 +17,13 @@ POST {{home}}/create_user
 Content-Type: application/json
 
 {
-  "username": "luck"
+  "username": "{{username}}"
+}
+
+###
+DELETE {{home}}/delete_user
+Content-Type: application/json
+
+{
+  "id": 6
 }
