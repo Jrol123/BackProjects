@@ -1,51 +1,39 @@
 package com.example.project.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serializable;
 
 @Entity
+@Getter
+@Setter
 public class Node {
     @EmbeddedId
     private NodeId id;
 
-    public NodeId getId() {
-        return id;
-    }
-
     @Column(name = "text")
     private String text;
 
-    public String getText() {
-        return text;
-    }
+//    @ManyToOne(optional = false)
+//    @JoinColumn(name = "user_id", nullable = false)
+//    private User user;
 
-    public void setText(String text) {
-        this.text = text;
-    }
 }
 
+@Getter
 @Embeddable
 class NodeId implements Serializable {
+
+    // TODO: Не работает каскадное удаление
+    @ManyToOne()
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    public Integer getId() {
-        return id;
-    }
+//    @Column(name = "user_id", nullable = false)
+//    private Integer userId;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Column(name = "user_id", nullable = false)
-    private Integer userId;
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
 }

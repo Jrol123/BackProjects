@@ -26,7 +26,7 @@ public class UserService {
     public List<User> getAllByName(String username){
         var users =  userRepository.findAllByUsername(username);
         if (users.isEmpty()) {
-            throw new UsersNotFoundException("Пользователи с указанным именем не найдены");
+            throw new UserNotFoundException("Пользователи с указанным именем не найдены");
         }
         return users;
     }

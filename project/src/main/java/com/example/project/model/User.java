@@ -3,6 +3,11 @@ package com.example.project.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
 @Data
 @Entity
 @Builder
@@ -13,6 +18,10 @@ public class User {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JoinColumn(name = "user_id") // В противном случае создаёт смежную таблицу
+    private Set<Node> nodes = new LinkedHashSet<>();
 
     @Column(name = "username", length = 50)
     private String username;

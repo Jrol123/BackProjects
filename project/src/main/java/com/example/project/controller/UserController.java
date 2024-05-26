@@ -26,10 +26,9 @@ public class UserController {
         return userDto;
     }
 
-    //TODO: Переделать под Body
     @GetMapping("/get_users")
     @ResponseStatus(HttpStatus.OK)
-    public List<UserResponseByIdDto> getUsersByUsername(@RequestBody AllUsersDto allUsersDto){
+    public List<UserResponseByIdDto> getUsersByUsername(@RequestBody UserNameDto allUsersDto){
         var username = allUsersDto.getUsername();
         var users = userService.getAllByName(username);
 //        var usersDto = users.forEach((user) -> modelMapper.map(user, UserResponseByIdDto.class));
@@ -40,7 +39,7 @@ public class UserController {
 
     @PostMapping("/create_user")
     @ResponseStatus(HttpStatus.CREATED)
-    public UserCreationResponseDto createUser(@RequestBody UserCreationDto creationDto) {
+    public UserCreationResponseDto createUser(@RequestBody UserNameDto creationDto) {
         User user = modelMapper.map(creationDto, User.class);
         userService.createUser(user);
 
