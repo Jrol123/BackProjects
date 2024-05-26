@@ -5,15 +5,30 @@ import lombok.*;
 
 import java.io.Serializable;
 
+@Data
 @Entity
+@Builder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Node {
     @EmbeddedId
     private NodeId id;
 
     @Column(name = "text")
     private String text;
+
+    public Node setText(String text) {
+        this.text = text;
+        return this;
+    }
+
+    public NodeId setId(User user) {
+        id = new NodeId(user, user.getCount_nodes());
+        user.incrementCount();
+        return null;
+    }
 
 //    @ManyToOne(optional = false)
 //    @JoinColumn(name = "user_id", nullable = false)
@@ -23,6 +38,8 @@ public class Node {
 
 @Getter
 @Embeddable
+@AllArgsConstructor
+@NoArgsConstructor
 class NodeId implements Serializable {
 
     // TODO: Не работает каскадное удаление
@@ -31,7 +48,7 @@ class NodeId implements Serializable {
     private User user;
 
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
 
 //    @Column(name = "user_id", nullable = false)
 //    private Integer userId;

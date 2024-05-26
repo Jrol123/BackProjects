@@ -2,8 +2,8 @@ package com.example.project.exception;
 
 import org.springframework.http.HttpStatus;
 
-public class UserNotFoundException extends ApiException{
-    public UserNotFoundException(String message) {
+public class NotFoundException extends ApiException{
+    public NotFoundException(String message) {
         super(HttpStatus.NOT_FOUND, message);
     }
 }

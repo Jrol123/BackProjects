@@ -24,13 +24,13 @@ public class UserService {
 
     public User getUserById(Long id){
         return userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("Пользователь с указанным id не найден"));
+                .orElseThrow(() -> new NotFoundException("Пользователь с указанным id не найден"));
     }
 
     public List<User> getAllByName(String username){
         var users =  userRepository.findAllByUsername(username);
         if (users.isEmpty()) {
-            throw new UserNotFoundException("Пользователи с указанным именем не найдены");
+            throw new NotFoundException("Пользователи с указанным именем не найдены");
         }
         return users;
     }

@@ -3,9 +3,7 @@ package com.example.project.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -27,5 +25,10 @@ public class User {
     private String username;
 
     @Column(name = "count_nodes")
-    private Integer count_nodes = 0;
+    private Long count_nodes = 0L;
+
+    public User incrementCount(){
+        count_nodes++;
+        return null;
+    }
 }
