@@ -18,6 +18,10 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public void removeUser(User user) {
+        userRepository.delete(user);
+    }
+
     public User getUserById(Long id){
         return userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("Пользователь с указанным id не найден"));

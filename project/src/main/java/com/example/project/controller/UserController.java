@@ -39,12 +39,26 @@ public class UserController {
 
     @PostMapping("/create_user")
     @ResponseStatus(HttpStatus.CREATED)
-    public UserCreationResponseDto createUser(@RequestBody UserNameDto creationDto) {
+    public ResponseDto createUser(@RequestBody UserNameDto creationDto) {
         User user = modelMapper.map(creationDto, User.class);
         userService.createUser(user);
 
-        var userId = user.getId();
-        var userCreationResponseDto = new UserCreationResponseDto().setId(userId);
-        return userCreationResponseDto;
+//        var userId = user.getId();
+//        var userCreationResponseDto = new UserIdDto().setId(userId);
+
+        ResponseDto response = new ResponseDto("Успех!");
+
+        return response;
+    }
+
+    // TODO: Летит из-за отсутствия каскадного удаления
+    @DeleteMapping("/delete_user")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseDto deleteUser(@RequestBody UserIdDto deletionDto) {
+        User user = userService.getUserById(deletionDto.getId());
+        ResponseDto response = new ResponseDto("Успех!");
+//        var response = modelMapper.map("Успех!", ResponseDto.class);
+        userService.removeUser(user);
+        return response;
     }
 }
