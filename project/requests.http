@@ -27,3 +27,34 @@ Content-Type: application/json
 {
   "id": 6
 }
+
+###
+GET {{home}}/1/5
+
+###
+POST {{home}}/add_node
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "text": "ololo999"
+}
+
+###
+DELETE {{home}}/delete_node
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "id": 0
+}
+
+###
+PATCH {{home}}/edit_node
+Content-Type: application/json
+
+{
+  "user_id": 1,
+  "id": 5,
+  "text": "Работоспособность"
+}
