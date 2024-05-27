@@ -44,7 +44,7 @@ Content-Type: application/json
 }
 
 ###
-GET {{home}}/1/1
+GET {{home}}/1/2
 Content-Type: application/json
 
 {
@@ -70,7 +70,7 @@ DELETE {{home}}/delete_node
 Content-Type: application/json
 
 {
-  "id": 0,
+  "id": 1,
   "user_id": 1,
   "username": "L",
   "password": "123321"
@@ -85,6 +85,6 @@ Content-Type: application/json
   "user_id": 1,
   "username": "L",
   "password": "123321",
-  "name": "sdasd",
+  "name": "Что требуется на работе?",
   "text": "Работоспособность"
 }
