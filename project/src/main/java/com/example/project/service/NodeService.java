@@ -24,7 +24,14 @@ public class NodeService {
                 .orElseThrow(() -> new NotFoundException("Записка с указанным id не найдена"));
     }
 
-    public void updateNode(Long user_id, Long id, String text) {
+    public void updateNode(Node node, Long user_id, Long id, String name, String text) {
+        if (name.isEmpty()){
+            throw new EmptyFieldException("Нельзя оставить пустое название!");
+        }
+        if (!text.isEmpty()){
+            node.setName(name);
+        }
+        node.setText(text);
         Node newNode = getNodeById(user_id, id);
         newNode.setText(text);
 

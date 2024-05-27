@@ -5,7 +5,11 @@ import lombok.experimental.Accessors;
 
 @Data
 @Accessors(chain = true)
-public class NodeCreationDto {
+public class NodeCreationDto{
     private Long user_id;
+    String username;
+    String password;
+
+    private String name;
     private String text;
 }

@@ -19,7 +19,9 @@ public class NodeController {
 
     @GetMapping("/{id_user}/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public NodeResponseByIdDto getNodeById(@PathVariable Long id_user, @PathVariable Long id) {
+    public NodeResponseByIdDto getNodeById(@PathVariable Long id_user, @PathVariable Long id, @RequestBody BasicCredentialsUserDto userDto) {
+        var user = userService.getUserById(id_user);
+        userService.checkUserCredentials(user, userDto.getUsername(), userDto.getPassword());
         var node = nodeService.getNodeById(id_user, id);
         var nodeDto = new NodeResponseByIdDto(id, node.getText()); // При map-е выбрасывало неверный id. Наверное, из-за особенностей строения node.
 
@@ -31,6 +33,7 @@ public class NodeController {
     public ResponseDto createNode(@RequestBody NodeCreationDto creationDto){
         Node node = modelMapper.map(creationDto, Node.class);
         var user = userService.getUserById(creationDto.getUser_id());
+        userService.checkUserCredentials(user, creationDto.getUsername(), creationDto.getPassword());
         node.setId(user);
         nodeService.createNode(node);
 
@@ -42,6 +45,8 @@ public class NodeController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseDto deleteNode(@RequestBody NodeDeletionDto deletionDto) {
         Node node = nodeService.getNodeById(deletionDto.getUser_id(), deletionDto.getId());
+        var user = userService.getUserById(deletionDto.getUser_id());
+        userService.checkUserCredentials(user, deletionDto.getUsername(), deletionDto.getPassword());
 
         nodeService.deleteNode(node);
         ResponseDto response = new ResponseDto("Успех!");
@@ -52,8 +57,11 @@ public class NodeController {
     @PatchMapping("/edit_node")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public ResponseDto updateNode(@RequestBody NodeUpdateDto updateDto){
+        Node node = nodeService.getNodeById(updateDto.getUser_id(), updateDto.getId());
+        var user = userService.getUserById(updateDto.getUser_id());
+        userService.checkUserCredentials(user, updateDto.getUsername(), updateDto.getPassword());
 //        Node node = nodeService.getNodeById(updateDto.getUser_id(), updateDto.getId());
-        nodeService.updateNode(updateDto.getUser_id(), updateDto.getId(), updateDto.getText());
+        nodeService.updateNode(node, updateDto.getUser_id(), updateDto.getId(), updateDto.getName(), updateDto.getText());
 //        node.setText(updateDto.getText());
 
         ResponseDto response = new ResponseDto("Успех!");

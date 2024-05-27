@@ -19,6 +19,9 @@ public class Node {
     @Column(name = "text")
     private String text;
 
+    @Column(name = "name", nullable = false)
+    private String name;
+
     public Node setText(String text) {
         this.text = text;
         return this;

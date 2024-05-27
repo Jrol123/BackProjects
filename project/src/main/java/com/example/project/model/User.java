@@ -21,8 +21,11 @@ public class User {
     @JoinColumn(name = "user_id") // В противном случае создаёт смежную таблицу
     private Set<Node> nodes = new LinkedHashSet<>();
 
-    @Column(name = "username", length = 50)
+    @Column(name = "username", nullable = false, length = 50)
     private String username;
+
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @Column(name = "count_nodes")
     private Long count_nodes = 0L;

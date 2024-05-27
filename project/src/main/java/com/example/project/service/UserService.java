@@ -1,5 +1,6 @@
 package com.example.project.service;
 
+import com.example.project.dto.UserEditDto;
 import com.example.project.exception.*;
 import com.example.project.model.User;
 import com.example.project.repository.UserRepository;
@@ -15,6 +16,9 @@ public class UserService {
 
 
     public void createUser(User user) {
+        if (user.getPassword().isEmpty() || user.getUsername().isEmpty()){
+            throw new EmptyFieldException("Не все поля заполнены!");
+        }
         userRepository.save(user);
     }
 
@@ -33,5 +37,21 @@ public class UserService {
             throw new NotFoundException("Пользователи с указанным именем не найдены");
         }
         return users;
+    }
+
+    public void checkUserCredentials(User user, String username, String password) {
+        if (!user.getPassword().equals(password) || !user.getUsername().equals(username)){
+            throw new WrongDataException("Неправильный логин и/или пароль!");
+        }
+    }
+
+    public void updateUserCredentials(User user, UserEditDto updateDto) {
+        if (!updateDto.getNew_password().isEmpty()){
+            user.setPassword(updateDto.getNew_password());
+        }
+        if (!updateDto.getNew_username().isEmpty()){
+            user.setUsername(updateDto.getNew_username());
+        }
+        userRepository.save(user);
     }
 }
