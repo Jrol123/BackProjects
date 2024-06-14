@@ -3,7 +3,7 @@ volumes:
   postgress:
 services: 
   lab_db:
-    image: 'postgres:latest'
+    image: 'postgres:13'
     container_name: 'lab-3'
     restart: always 
     environment:
